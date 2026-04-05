@@ -26,11 +26,16 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
-      title: "Calcifer.shop",
+      title: "Calcifer.shop — Dev Tools for Builders",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "description", content: "Calcifer - Premium Single Product Audio Experience" },
+        { name: "description", content: "Production-ready .NET 8 templates with built-in licensing, feature gating, and seat control. Ship SaaS like a product, not just code." },
+      ],
+      link: [
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
+        { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" },
       ],
       htmlAttrs: {
         class: 'dark'

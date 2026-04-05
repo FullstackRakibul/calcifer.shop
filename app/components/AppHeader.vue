@@ -1,5 +1,5 @@
 <template>
-  <!-- Calcifer Minimalist Header -->
+  <!-- Calcifer Developer Tools Header -->
   <header :class="[
     'sticky top-0 z-40 transition-all duration-300',
     layoutStore.headerScrolled
@@ -11,87 +11,38 @@
 
         <!-- Left: Brand -->
         <div class="flex items-center">
-          <NuxtLink to="/" class="flex items-center opacity-90 hover:opacity-100 transition-opacity">
-            <span class="text-2xl font-bold tracking-tight">Calcifer</span>
+          <NuxtLink to="/" class="flex items-center gap-2 opacity-90 hover:opacity-100 transition-opacity">
+            <span class="text-xl">🔥</span>
+            <span class="text-xl font-black tracking-tight">Calcifer</span>
           </NuxtLink>
         </div>
 
         <!-- Center: Navigation (hidden on mobile) -->
         <nav class="hidden md:flex items-center gap-8">
-          <a href="#features" class="text-sm font-medium hover:text-foreground/70 transition-colors">Features</a>
-          <a href="#specs" class="text-sm font-medium hover:text-foreground/70 transition-colors">Specs</a>
-          <a href="#ecosystem" class="text-sm font-medium hover:text-foreground/70 transition-colors">Ecosystem</a>
+          <a href="#features" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Features</a>
+          <a href="#how-it-works" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">How It Works</a>
+          <a href="#architecture" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Architecture</a>
+          <a href="#pricing" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
         </nav>
 
         <!-- Right: Actions -->
-        <div class="flex items-center gap-2">
-          <!-- Theme Settings Popover -->
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <HugeiconsIcon :icon="themeIcon" :size="20" />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent align="end" class="w-56">
-              <div class="space-y-4">
-                <div>
-                  <p class="text-sm font-semibold mb-3">Appearance</p>
-                </div>
+        <div class="flex items-center gap-3">
+          <!-- GitHub -->
+          <a :href="githubUrl" target="_blank" rel="noopener"
+            class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-muted-foreground hover:text-foreground border border-transparent hover:border-border transition-all">
+            <i class="fab fa-github text-base"></i>
+            <span>GitHub</span>
+          </a>
 
-                <!-- Theme Toggle -->
-                <div>
-                  <p class="text-xs text-muted-foreground uppercase tracking-widest mb-2 font-medium">Theme</p>
-                  <div class="grid grid-cols-3 gap-2">
-                    <button @click="setTheme('light')"
-                      :class="['px-3 py-2 rounded-lg border text-xs font-medium transition-all', theme === 'light' ? 'bg-accent text-accent-foreground border-accent' : 'border-border hover:border-foreground/20']">
-                      Light
-                    </button>
-                    <button @click="setTheme('dark')"
-                      :class="['px-3 py-2 rounded-lg border text-xs font-medium transition-all', theme === 'dark' ? 'bg-accent text-accent-foreground border-accent' : 'border-border hover:border-foreground/20']">
-                      Dark
-                    </button>
-                    <button @click="setTheme('system')"
-                      :class="['px-3 py-2 rounded-lg border text-xs font-medium transition-all', theme === 'system' ? 'bg-accent text-accent-foreground border-accent' : 'border-border hover:border-foreground/20']">
-                      System
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Font Selector -->
-                <div class="border-t border-border pt-4">
-                  <p class="text-xs text-muted-foreground uppercase tracking-widest mb-2 font-medium">Font</p>
-                  <div class="space-y-1">
-                    <button @click="setFont('ubuntu')"
-                      :class="['w-full text-left px-3 py-2 rounded-lg text-sm transition-colors', selectedFont === 'ubuntu' ? 'bg-accent text-accent-foreground' : 'hover:bg-muted']">
-                      Ubuntu
-                    </button>
-                    <button @click="setFont('system')"
-                      :class="['w-full text-left px-3 py-2 rounded-lg text-sm transition-colors', selectedFont === 'system' ? 'bg-accent text-accent-foreground' : 'hover:bg-muted']">
-                      System
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </PopoverContent>
-          </Popover>
-
-          <!-- Cart -->
-          <CartDropdown />
-
-          <!-- Sign In Button -->
-          <Button @click="handleSignIn" variant="outline" size="sm" class="hidden sm:inline-flex gap-2">
-            <HugeiconsIcon :icon="UserIcon" :size="16" />
-            Sign In
-          </Button>
-
-          <!-- Pre-Order CTA -->
-          <Button @click="scrollToPreOrder" size="sm" class="hidden sm:inline-flex">
-            Pre-Order Now
+          <!-- Buy Now CTA -->
+          <Button @click="scrollToPricing" size="sm" class="bg-fire-500 hover:bg-fire-600 text-white border-0">
+            Buy Now
           </Button>
 
           <!-- Mobile menu toggle -->
           <Button variant="ghost" size="icon" class="md:hidden" @click="layoutStore.toggleMobileMenu">
-            <HugeiconsIcon :icon="Menu01Icon" :size="20" />
+            <svg v-if="!layoutStore.mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            <svg v-else xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </Button>
         </div>
       </div>
@@ -99,17 +50,26 @@
 
     <!-- Mobile Menu -->
     <Transition name="slide">
-      <div v-if="layoutStore.mobileMenuOpen" class="md:hidden border-t border-border/50">
+      <div v-if="layoutStore.mobileMenuOpen" class="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-lg">
         <nav class="px-6 py-4 space-y-3">
           <a href="#features" @click="layoutStore.closeMobileMenu"
-            class="block text-sm font-medium hover:text-foreground/70">Features</a>
-          <a href="#specs" @click="layoutStore.closeMobileMenu"
-            class="block text-sm font-medium hover:text-foreground/70">Specs</a>
-          <a href="#ecosystem" @click="layoutStore.closeMobileMenu"
-            class="block text-sm font-medium hover:text-foreground/70">Ecosystem</a>
-          <Button @click="scrollToPreOrder; layoutStore.closeMobileMenu()" class="w-full mt-4">
-            Pre-Order Now
-          </Button>
+            class="block text-sm font-medium text-muted-foreground hover:text-foreground">Features</a>
+          <a href="#how-it-works" @click="layoutStore.closeMobileMenu"
+            class="block text-sm font-medium text-muted-foreground hover:text-foreground">How It Works</a>
+          <a href="#architecture" @click="layoutStore.closeMobileMenu"
+            class="block text-sm font-medium text-muted-foreground hover:text-foreground">Architecture</a>
+          <a href="#pricing" @click="layoutStore.closeMobileMenu"
+            class="block text-sm font-medium text-muted-foreground hover:text-foreground">Pricing</a>
+          <div class="pt-3 border-t border-border/50 flex flex-col gap-2">
+            <a :href="githubUrl" target="_blank" rel="noopener"
+              class="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+              <i class="fab fa-github"></i>
+              Star on GitHub
+            </a>
+            <Button @click="scrollToPricing(); layoutStore.closeMobileMenu()" class="w-full bg-fire-500 hover:bg-fire-600 text-white border-0 mt-2">
+              Buy Now
+            </Button>
+          </div>
         </nav>
       </div>
     </Transition>
@@ -117,92 +77,26 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { onMounted, onUnmounted } from 'vue'
 import { useLayoutStore } from '@/stores/layout'
 import { Button } from '@/components/ui/button'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover'
-import CartDropdown from '@/components/CartDropdown.vue'
-import { HugeiconsIcon } from '@hugeicons/vue'
-import { Menu01Icon, Sun01Icon, Moon01Icon, UserIcon } from '@hugeicons/core-free-icons'
 
-const router = useRouter()
 const layoutStore = useLayoutStore()
+const githubUrl = 'https://github.com/calcifer-shop/calcifer'
 
-const theme = ref<'light' | 'dark' | 'system'>('dark')
-const selectedFont = ref<'ubuntu' | 'system'>('ubuntu')
-
-const themeIcon = computed(() => {
-  if (theme.value === 'light') return Sun01Icon
-  if (theme.value === 'dark') return Moon01Icon
-  return Sun01Icon
-})
-
-const setTheme = (newTheme: 'light' | 'dark' | 'system') => {
-  theme.value = newTheme
-  if (typeof window !== 'undefined') {
-    const html = document.documentElement
-    if (newTheme === 'light') {
-      html.classList.remove('dark')
-    } else if (newTheme === 'dark') {
-      html.classList.add('dark')
-    } else {
-      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      if (isDark) {
-        html.classList.add('dark')
-      } else {
-        html.classList.remove('dark')
-      }
-    }
-    localStorage.setItem('theme', newTheme)
-  }
-}
-
-const setFont = (newFont: 'ubuntu' | 'system') => {
-  selectedFont.value = newFont
-  if (typeof window !== 'undefined') {
-    const html = document.documentElement
-    if (newFont === 'ubuntu') {
-      html.style.fontFamily = '"Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
-    } else {
-      html.style.fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
-    }
-    localStorage.setItem('font', newFont)
-  }
-}
-
-const scrollToPreOrder = () => {
-  const element = document.getElementById('preorder-section')
+const scrollToPricing = () => {
+  const element = document.getElementById('pricing')
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' })
   }
-}
-
-const handleSignIn = () => {
-  router.push('/login')
 }
 
 const handleScroll = () => {
   layoutStore.updateHeaderScroll(window.scrollY)
 }
 
-const loadPreferences = () => {
-  if (typeof window !== 'undefined') {
-    const savedTheme = (localStorage.getItem('theme') as 'light' | 'dark' | 'system' | null) || 'dark'
-    const savedFont = (localStorage.getItem('font') as 'ubuntu' | 'system' | null) || 'ubuntu'
-
-    setTheme(savedTheme)
-    setFont(savedFont)
-  }
-}
-
 onMounted(() => {
   layoutStore.init()
-  loadPreferences()
   window.addEventListener('scroll', handleScroll)
 })
 
@@ -213,14 +107,14 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.dropdown-enter-active,
-.dropdown-leave-active {
-  transition: all 0.15s ease;
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.2s ease-out;
 }
 
-.dropdown-enter-from,
-.dropdown-leave-to {
+.slide-enter-from,
+.slide-leave-to {
   opacity: 0;
-  transform: translateY(-8px);
+  transform: translateY(-10px);
 }
 </style>

@@ -2,186 +2,249 @@ import { defineStore } from "pinia"
 import { ref, computed } from "vue"
 
 /**
- * Calcifer - Premium Single Product
- * A revolutionary audio system for the discerning listener
+ * Calcifer.shop — Developer Tools Marketplace
+ * Product data model for templates, packages, and starter kits
  */
-export interface CalciferProduct {
+export interface DevProduct {
   id: number
   name: string
   brand: string
-  price: number
   tagline: string
   description: string
   longDescription: string
-  inStock: boolean
-  
-  // High-res images for storytelling
-  heroImage: string
-  featureImages: string[]
-  galleryImages: string[]
-  
-  // Technical specifications
-  specs: {
-    [key: string]: string
+
+  // Pricing tiers
+  tiers: {
+    solo: number
+    studio: number
+    enterprise: number
   }
-  
-  // Features for scrollytelling
-  features: Array<{
+
+  techStack: string[]
+
+  // Capabilities / pillars
+  pillars: Array<{
+    icon: string
     title: string
     description: string
-    image?: string
-    icon?: string
   }>
-  
-  // Ecosystem details
-  ecosystem: {
-    name: string
-    tagline: string
-    features: string[]
+
+  // Tech specifications
+  specs: Record<string, string>
+
+  // How-it-works steps
+  flow: Array<{
+    step: number
+    label: string
+    detail: string
+  }>
+
+  // Comparison: others vs calcifer
+  comparison: {
+    others: string[]
+    calcifer: string[]
   }
-  
+
+  // API code snippet
+  codeSnippet: {
+    method: string
+    endpoint: string
+    body: string
+    response: string
+  }
+
+  // Architecture modules
+  architecture: Array<{
+    name: string
+    description: string
+  }>
+
+  // Roadmap
+  roadmap: Array<{
+    title: string
+    description: string
+    status: 'done' | 'in-progress' | 'planned'
+  }>
+
   // Testimonials / Social proof
-  testimonials?: Array<{
+  testimonials: Array<{
     quote: string
     author: string
-    role?: string
+    role: string
   }>
-  
-  // Pre-order info
-  preOrderAvailable: boolean
-  estimatedDelivery?: string
+
+  // Links
+  githubUrl: string
+  nugetUrl: string
+  docsUrl: string
 }
 
 interface CalciferCart {
+  tier: 'solo' | 'studio' | 'enterprise'
   quantity: number
 }
 
 export const useProductStore = defineStore("products", () => {
-  // The Single Product - Calcifer
-  const product = ref<CalciferProduct>({
+  // The Flagship Product — Calcifer .NET 8 Template
+  const product = ref<DevProduct>({
     id: 1,
     name: "Calcifer",
-    brand: "Calcifer",
-    price: 1299.99,
-    tagline: "Where Sound Meets Soul",
-    description: "An exceptional audio system designed for the discerning listener. Premium craftsmanship meets innovative engineering.",
-    longDescription: "Calcifer is not just a product—it's a revolution in personal audio. Engineered with precision and designed with intention, Calcifer transforms how you experience sound. Every detail, from the acoustics to the industrial design, reflects an obsession with perfection.",
-    inStock: true,
-    
-    heroImage: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1400&q=80",
-    featureImages: [
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1000&q=80",
-      "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=1000&q=80",
-      "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=1000&q=80",
-    ],
-    galleryImages: [
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80",
-      "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=600&q=80",
-      "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=600&q=80",
-      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80",
-      "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=600&q=80",
-      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=600&q=80",
-    ],
-    
-    specs: {
-      "Frequency Response": "20Hz – 20kHz",
-      "Driver Size": "2x 50mm Dynamic Drivers",
-      "Impedance": "32 Ohms",
-      "Battery Life": "40 hours continuous playback",
-      "Charging Time": "2 hours (Fast Charge)",
-      "Bluetooth": "5.3 with aptX Adaptive Codec",
-      "Weight": "310g",
-      "Materials": "Aluminum, Genuine Leather, Premium Plastics",
-      "Water Resistance": "IPX4 Splash Resistant",
-      "Active Noise Cancellation": "Adaptive Hybrid ANC with 5 modes",
+    brand: "Calcifer.shop",
+    tagline: "Control Who Uses Your Software. Not Just What It Does.",
+    description: "A .NET 8 microservice template with built-in licensing, feature gating, and seat control — so you can ship SaaS like a product, not just code.",
+    longDescription: "Calcifer is not just a template — it's the missing layer between your software and your business model. Built-in authentication, licensing engine, feature gating, and seat management let you monetize from day one.",
+
+    tiers: {
+      solo: 49,
+      studio: 149,
+      enterprise: 499,
     },
-    
-    features: [
+
+    techStack: [".NET 8", "C#", "Entity Framework Core", "JWT", "ASP.NET Identity", "Minimal APIs", "Clean Architecture"],
+
+    pillars: [
       {
-        title: "Sonic Perfection",
-        description: "Hand-tuned acoustic chambers deliver pristine, studio-quality sound with deep bass and crystal-clear highs. Every frequency curve is calibrated for the perfect balance.",
-        icon: "🎵",
+        icon: "🔐",
+        title: "Authentication & Authorization",
+        description: "JWT + ASP.NET Identity with role hierarchy, policy-based authorization, and resource-level guards. Production-ready from the first commit.",
       },
       {
-        title: "Adaptive Noise Cancellation",
-        description: "Intelligent algorithm learns your environment and adapts in real-time. Block the world, or blend in—you control the experience.",
-        icon: "🔇",
+        icon: "🪪",
+        title: "Licensing Engine",
+        description: "Create, validate, activate, and expire licenses. Per-key control with machine binding. No third-party dependency.",
       },
       {
-        title: "40-Hour Battery",
-        description: "All-day, every-day. Calcifer lasts through 40 hours of continuous listening, with fast charging for emergencies.",
-        icon: "🔋",
+        icon: "🧩",
+        title: "Feature Gating",
+        description: "Lock features behind license tiers with [RequireFeature] attributes. Control access at the endpoint level — not just the role level.",
       },
       {
-        title: "Precision Craftsmanship",
-        description: "Premium materials meet meticulous engineering. Each Calcifer is hand-finished with attention to every detail.",
-        icon: "✨",
+        icon: "💺",
+        title: "Seat Control",
+        description: "Limit concurrent activations per license key. Bind to machine IDs. Enforce your pricing model at the infrastructure level.",
       },
       {
-        title: "Seamless Connectivity",
-        description: "Bluetooth 5.3 with multi-device pairing. Connect to anything, instantly. No latency, no compromise.",
-        icon: "📡",
-      },
-      {
-        title: "Personalized Sound",
-        description: "AI-driven EQ adapts to your music taste and hearing profile. Your sound, perfectly tuned.",
-        icon: "🎚️",
+        icon: "🌐",
+        title: "Dynamic Modules",
+        description: "Feature-based architecture with dynamic route registration. Add modules without touching the core. Scale your codebase like a product team.",
       },
     ],
-    
-    ecosystem: {
-      name: "Calcifer Ecosystem",
-      tagline: "The Future of Personal Audio",
-      features: [
-        "Calcifer App: Control every setting from your phone",
-        "Cloud Sync: Your preferences follow you everywhere",
-        "Lifetime Firmware Updates: New features forever",
-        "Calcifer Community: Connect with other users globally",
-        "Exclusive Content: Early access to new features and partnerships",
+
+    specs: {
+      "Framework": ".NET 8 LTS",
+      "Architecture": "Clean Architecture + Vertical Slices",
+      "Auth": "JWT Bearer + ASP.NET Identity",
+      "Database": "EF Core (SQL Server / PostgreSQL)",
+      "API Style": "Minimal APIs + Feature Modules",
+      "License Model": "Key-based with machine binding",
+      "Feature Gating": "Attribute-driven [RequireFeature]",
+      "Seeding": "Auto-seed Roles, Admin, Reference Data",
+      "Testing": "xUnit + Integration Tests",
+      "Docker": "Dockerfile + Compose included",
+    },
+
+    flow: [
+      { step: 1, label: "Login", detail: "User authenticates via JWT" },
+      { step: 2, label: "License Validate", detail: "System checks active license key" },
+      { step: 3, label: "Feature Gate", detail: "Endpoint checks required features" },
+      { step: 4, label: "Access Granted", detail: "User accesses the protected resource" },
+    ],
+
+    comparison: {
+      others: [
+        "Just CRUD endpoints",
+        "Basic auth only",
+        "No business layer",
+        "No monetization path",
+        "Rebuild for every project",
+      ],
+      calcifer: [
+        "Business-ready API from day one",
+        "Auth + Licensing + Feature Gates built-in",
+        "Monetization infrastructure included",
+        "Modular, scalable architecture",
+        "Ship products — not just code",
       ],
     },
-    
+
+    codeSnippet: {
+      method: "POST",
+      endpoint: "/api/license/activate",
+      body: JSON.stringify({
+        licenseKey: "LIC-PRO-XXXX-XXXX",
+        machineId: "DESKTOP-A1B2C3",
+      }, null, 2),
+      response: JSON.stringify({
+        activated: true,
+        tier: "professional",
+        features: ["analytics", "export", "multi-tenant"],
+        seatsRemaining: 4,
+        expiresAt: "2027-04-01T00:00:00Z",
+      }, null, 2),
+    },
+
+    architecture: [
+      { name: "Core", description: "Entities, interfaces, domain logic" },
+      { name: "Application", description: "Use cases, DTOs, validators" },
+      { name: "Infrastructure", description: "EF Core, Identity, external services" },
+      { name: "API", description: "Minimal API endpoints, middleware, filters" },
+      { name: "Modules", description: "Feature modules with self-contained routes" },
+      { name: "Licensing", description: "License engine, activation, gating" },
+    ],
+
+    roadmap: [
+      { title: "RSA License Keys", description: "Cryptographically signed offline-capable license validation", status: "in-progress" },
+      { title: "Redis Caching", description: "Distributed caching layer for license and session state", status: "planned" },
+      { title: "Multi-Tenant System", description: "Tenant isolation with shared or dedicated databases", status: "planned" },
+      { title: "Plugin Modules", description: "Hot-loadable feature plugins with dependency injection", status: "planned" },
+    ],
+
     testimonials: [
       {
-        quote: "Calcifer redefined what audio excellence means. It's not just what you hear—it's how you feel.",
-        author: "Alex Chen",
-        role: "Audio Engineer, Warner Bros",
+        quote: "Calcifer saved us 3 weeks of boilerplate. The licensing engine alone is worth the price — we integrated it into our ERP product in 2 days.",
+        author: "Arif Rahman",
+        role: "CTO, TechNova Solutions (Dhaka)",
       },
       {
-        quote: "The attention to detail is unmatched. From the first listen, I was transformed.",
-        author: "Jordan Williams",
-        role: "Music Producer, Grammy Winner",
+        quote: "Finally, a .NET template that understands business logic. Feature gating with attributes is elegant. This is how enterprise software should start.",
+        author: "Priya Sharma",
+        role: "Senior Architect, InfoBridge (Bangalore)",
       },
       {
-        quote: "Finally, a product that respects the listener's experience. Calcifer is a masterpiece.",
-        author: "Sam Patel",
-        role: "Audiophile & Tech Journalist",
+        quote: "We were building the same auth + license system for every client project. Calcifer made that a one-time setup. Our team ships 40% faster now.",
+        author: "Minh Tran",
+        role: "Lead Developer, VietSoft (Ho Chi Minh City)",
       },
     ],
-    
-    preOrderAvailable: true,
-    estimatedDelivery: "Q2 2026",
+
+    githubUrl: "https://github.com/calcifer-shop/calcifer",
+    nugetUrl: "https://www.nuget.org/packages/Calcifer",
+    docsUrl: "https://docs.calcifer.shop",
   })
 
-  // Cart - simplified to just quantity of Calcifer
+  // Cart — simplified: tier + quantity
   const cart = ref<CalciferCart>(getCartFromStorage())
-  
+
   // Computed
   const cartQuantity = computed(() => cart.value.quantity)
-  
-  const cartTotal = computed(() => {
-    return product.value.price * cart.value.quantity
+
+  const selectedTierPrice = computed(() => {
+    return product.value.tiers[cart.value.tier]
   })
-  
+
+  const cartTotal = computed(() => {
+    return selectedTierPrice.value * cart.value.quantity
+  })
+
   const cartItemsCount = computed(() => cart.value.quantity)
 
   // Actions
   function getCartFromStorage(): CalciferCart {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem("calcifer-cart")
-      return stored ? JSON.parse(stored) : { quantity: 0 }
+      return stored ? JSON.parse(stored) : { tier: 'solo', quantity: 0 }
     }
-    return { quantity: 0 }
+    return { tier: 'solo', quantity: 0 }
   }
 
   function saveCartToStorage() {
@@ -190,7 +253,8 @@ export const useProductStore = defineStore("products", () => {
     }
   }
 
-  function addToCart(quantity: number = 1) {
+  function addToCart(tier: 'solo' | 'studio' | 'enterprise' = 'solo', quantity: number = 1) {
+    cart.value.tier = tier
     cart.value.quantity += quantity
     saveCartToStorage()
   }
@@ -205,8 +269,13 @@ export const useProductStore = defineStore("products", () => {
     saveCartToStorage()
   }
 
+  function setTier(tier: 'solo' | 'studio' | 'enterprise') {
+    cart.value.tier = tier
+    saveCartToStorage()
+  }
+
   function clearCart() {
-    cart.value.quantity = 0
+    cart.value = { tier: 'solo', quantity: 0 }
     saveCartToStorage()
   }
 
@@ -217,6 +286,7 @@ export const useProductStore = defineStore("products", () => {
 
     // Computed
     cartQuantity,
+    selectedTierPrice,
     cartTotal,
     cartItemsCount,
 
@@ -224,6 +294,7 @@ export const useProductStore = defineStore("products", () => {
     addToCart,
     removeFromCart,
     updateCartQuantity,
+    setTier,
     clearCart,
   }
 })
