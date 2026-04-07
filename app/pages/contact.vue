@@ -18,7 +18,7 @@
                 <p class="text-muted-foreground">support@calcifer.shop</p>
               </div>
             </div>
-            
+
             <div class="flex items-start gap-4">
               <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center text-accent shrink-0">
                 <HugeiconsIcon :icon="Location01Icon" :size="20" />
@@ -26,8 +26,8 @@
               <div>
                 <p class="font-medium">Studio</p>
                 <p class="text-muted-foreground text-sm">
-                  123 Resonance Way, Acoustic Valley<br />
-                  California, 90210
+                  N/S 01, #A Block, Banasree <br />
+                  Dhaka, Bangladesh
                 </p>
               </div>
             </div>

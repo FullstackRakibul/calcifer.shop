@@ -36,12 +36,7 @@
                 Calcifer.UserMatrix
               </NuxtLink>
             </li>
-            <li>
-              <a href="https://docs.calcifer.shop" target="_blank" rel="noopener"
-                class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
-                Documentation
-              </a>
-            </li>
+
           </ul>
         </div>
 
@@ -50,25 +45,14 @@
           <h3 class="text-foreground font-semibold mb-4 text-sm uppercase tracking-wider">Resources</h3>
           <ul class="space-y-2.5">
             <li>
-              <NuxtLink to="/about" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
-                About
-              </NuxtLink>
-            </li>
-            <li>
               <NuxtLink to="/faq" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
                 FAQ
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/contact" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
-                Contact
+              <NuxtLink to="/docs" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
+                Documentation
               </NuxtLink>
-            </li>
-            <li>
-              <a href="https://github.com/calcifer-shop/calcifer/blob/main/CHANGELOG.md" target="_blank" rel="noopener"
-                class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
-                Changelog
-              </a>
             </li>
           </ul>
         </div>

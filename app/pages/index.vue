@@ -121,7 +121,7 @@
           <NuxtLink to="/products/forge"
             class="group relative p-8 rounded-2xl border border-border/50 bg-background glow-card hover:-translate-y-2 transition-all duration-500 cursor-pointer block">
             <div
-              class="absolute inset-0 rounded-2xl bg-gradient-to-b from-fire-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              class="absolute inset-0 rounded-2xl bg-linear-to-b from-fire-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             </div>
             <div class="relative z-10">
               <div class="text-4xl mb-5 group-hover:scale-110 transition-transform duration-300 ember-float">🔥</div>
@@ -150,7 +150,7 @@
           <NuxtLink to="/products/ordermint"
             class="group relative p-8 rounded-2xl border border-border/50 bg-background glow-card hover:-translate-y-2 transition-all duration-500 cursor-pointer block">
             <div
-              class="absolute inset-0 rounded-2xl bg-gradient-to-b from-fire-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              class="absolute inset-0 rounded-2xl bg-linear-to-b from-fire-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             </div>
             <div class="relative z-10">
               <div class="text-4xl mb-5 group-hover:scale-110 transition-transform duration-300 ember-float"
@@ -180,7 +180,7 @@
           <NuxtLink to="/products/usermatrix"
             class="group relative p-8 rounded-2xl border border-border/50 bg-background glow-card hover:-translate-y-2 transition-all duration-500 cursor-pointer block">
             <div
-              class="absolute inset-0 rounded-2xl bg-gradient-to-b from-fire-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              class="absolute inset-0 rounded-2xl bg-linear-to-b from-fire-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             </div>
             <div class="relative z-10">
               <div class="text-4xl mb-5 group-hover:scale-110 transition-transform duration-300 ember-float"

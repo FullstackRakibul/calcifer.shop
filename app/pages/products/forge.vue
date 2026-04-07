@@ -42,11 +42,11 @@
             � Get Forge
           </Button>
           <Button size="lg" variant="outline" class="px-8 border-border hover:border-fire-500/50"
-            @click="openLink('https://www.nuget.org/packages/Calcifer')">
+            @click="openLink('https://www.nuget.org/packages/Calcifer.Microservice.Api.Template')">
             📦 NuGet Gallery
           </Button>
           <Button size="lg" variant="outline" class="px-8 border-border hover:border-fire-500/50"
-            @click="openLink('https://github.com/calcifer-shop/calcifer')">
+            @click="openLink('https://github.com/FullstackRakibul/dotnet.calcifer')">
             🐙 GitHub
           </Button>
         </div>
@@ -337,12 +337,12 @@
         <!-- Bottom Links -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16">
           <Button variant="outline" size="lg" class="gap-2"
-            @click="openLink('https://github.com/calcifer-shop/calcifer')">
+            @click="openLink('https://github.com/FullstackRakibul/dotnet.calcifer')">
             <i class="fab fa-github"></i>
             ⭐ Star on GitHub
           </Button>
           <Button variant="outline" size="lg" class="gap-2"
-            @click="openLink('https://www.nuget.org/packages/Calcifer')">
+            @click="openLink('https://www.nuget.org/packages/Calcifer.Microservice.Api.Template')">
             📦 Install from NuGet
           </Button>
         </div>

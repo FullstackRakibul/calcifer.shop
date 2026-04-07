@@ -284,8 +284,8 @@
             🔐 Get UserMatrix
           </Button>
           <Button size="lg" variant="outline" class="px-8 border-border hover:border-fire-500/50"
-            @click="openLink('https://github.com/calcifer-shop/calcifer')">
-            🐙 View Source
+            @click="openLink('https://weavo-go.vercel.app/')">
+            🐙 View Preview
           </Button>
         </div>
       </div>
