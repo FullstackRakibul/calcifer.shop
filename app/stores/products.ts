@@ -73,6 +73,12 @@ export interface DevProduct {
     role: string
   }>
 
+  // Media
+  heroImage: string
+
+  // Delivery
+  estimatedDelivery: string
+
   // Links
   githubUrl: string
   nugetUrl: string
@@ -216,6 +222,9 @@ export const useProductStore = defineStore("products", () => {
         role: "Lead Developer, VietSoft (Ho Chi Minh City)",
       },
     ],
+
+    heroImage: "/images/calcifer-hero.png",
+    estimatedDelivery: "Instant — digital delivery via email",
 
     githubUrl: "https://github.com/calcifer-shop/calcifer",
     nugetUrl: "https://www.nuget.org/packages/Calcifer",

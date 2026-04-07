@@ -22,7 +22,7 @@
                 <p class="text-muted-foreground text-sm mt-1">{{ productStore.product.tagline }}</p>
                 <div class="mt-4 flex items-center justify-between">
                   <span class="text-sm text-muted-foreground">Quantity: {{ productStore.cartQuantity }}</span>
-                  <span class="font-bold text-lg">${{ (productStore.product.price * productStore.cartQuantity).toFixed(2) }}</span>
+                  <span class="font-bold text-lg">${{ productStore.cartTotal.toFixed(2) }}</span>
                 </div>
               </div>
             </div>
@@ -168,7 +168,7 @@
             <div class="mb-6 pb-6 border-b border-border">
               <div class="flex justify-between mb-2">
                 <span class="text-muted-foreground">{{ productStore.product.name }}</span>
-                <span class="font-medium">${{ productStore.product.price.toFixed(2) }}</span>
+                <span class="font-medium">${{ productStore.selectedTierPrice.toFixed(2) }}</span>
               </div>
               <div class="flex justify-between text-sm text-muted-foreground">
                 <span>Quantity: {{ productStore.cartQuantity }}</span>
@@ -262,7 +262,7 @@ const shippingInfo = ref({
 })
 
 const subtotal = computed(() => productStore.cartTotal)
-const shipping = computed(() => (subtotal.value > 500 ? 0 : 15))
+const shipping = computed(() => 0)
 const tax = computed(() => subtotal.value * 0.08)
 const total = computed(() => subtotal.value + shipping.value + tax.value)
 

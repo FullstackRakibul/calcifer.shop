@@ -30,7 +30,7 @@
               <div class="flex-1">
                 <p class="font-medium text-foreground">{{ product.name }}</p>
                 <p class="text-sm text-muted-foreground mt-0.5">{{ product.tagline }}</p>
-                <p class="text-sm font-semibold text-foreground mt-2">${{ product.price }}</p>
+                <p class="text-sm font-semibold text-foreground mt-2">${{ productStore.selectedTierPrice }}</p>
               </div>
             </div>
 
@@ -85,7 +85,7 @@ const toggleDropdown = () => {
 }
 
 const increaseQuantity = () => {
-  productStore.addToCart(1)
+  productStore.addToCart('studio')
 }
 
 const decreaseQuantity = () => {
