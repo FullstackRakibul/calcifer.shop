@@ -9,8 +9,8 @@
             <span class="text-xl font-black tracking-tight heading-font">Calcifer</span>
           </NuxtLink>
           <p class="text-muted-foreground text-sm leading-relaxed max-w-xs">
-            The Hearth of Digital Business. We build systems
-            that turn code into revenue.
+            The Hearth of Digital Business. Systems that turn
+            software into controlled, scalable products.
           </p>
         </div>
 
@@ -19,18 +19,21 @@
           <h3 class="text-foreground font-semibold mb-4 text-sm uppercase tracking-wider">Products</h3>
           <ul class="space-y-2.5">
             <li>
-              <NuxtLink to="/products/calcifer-microservice" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
-                Calcifer.Microservice
+              <NuxtLink to="/products/forge"
+                class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
+                Calcifer.Forge
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/products/ordermint" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
-                OrderMint
+              <NuxtLink to="/products/ordermint"
+                class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
+                Calcifer.OrderMint
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/products/user-dashboard" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
-                User Dashboard
+              <NuxtLink to="/products/usermatrix"
+                class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
+                Calcifer.UserMatrix
               </NuxtLink>
             </li>
             <li>
