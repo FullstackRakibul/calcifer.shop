@@ -30,7 +30,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "description", content: "Calcifer builds systems that turn code into revenue. Developer tools, business systems, and identity infrastructure — designed to control access, monetize features, and ship products." },
+        { name: "description", content: "Calcifer builds systems that turn software into controlled, scalable products. Forge, OrderMint, and UserMatrix — an ecosystem of ownership infrastructure." },
       ],
       link: [
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -48,7 +48,7 @@ export default defineNuxtConfig({
   },
 
   ssr: true,
-  compatibilityDate: '2025-10-01',
+  compatibilityDate: '2029-04-08',
   srcDir: 'app/',
 
   components: [

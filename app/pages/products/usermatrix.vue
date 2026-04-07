@@ -14,30 +14,30 @@
         <div
           class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-fire-500/30 bg-fire-500/5 text-fire-400 text-sm font-medium mb-8 opacity-0 animate-fade-in-down">
           <span class="w-2 h-2 rounded-full bg-fire-400 animate-pulse"></span>
-          Angular · Vue · .NET API
+          Universal Access Control · Angular · Vue · .NET
         </div>
 
         <h1
           class="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter mb-6 text-balance opacity-0 animate-fade-in-down"
           style="animation-delay: 0.1s">
-          User Management<br />
-          <span class="text-fire-400">Dashboard</span>
+          Calcifer<span class="text-fire-400">.UserMatrix</span>
         </h1>
 
         <p class="text-xl text-muted-foreground font-light mb-4 max-w-2xl mx-auto opacity-0 animate-fade-in-down"
           style="animation-delay: 0.2s">
-          The Universal Identity Hub for Any App.
+          Control access. Everywhere.
         </p>
 
         <p class="text-base text-foreground/60 max-w-2xl mx-auto mb-12 leading-relaxed opacity-0 animate-fade-in-down"
           style="animation-delay: 0.3s">
-          Roles, permissions, audit logs, and profile management — ready to drop
-          into your Angular or Vue project. The last user system you'll ever need.
+          Centralized user and access management. Roles, permissions,
+          feature-level access control, audit logs, and cross-system integration.
+          Where permissions are defined, not guessed.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in-up"
           style="animation-delay: 0.4s">
-          <Button size="lg" class="px-8 bg-fire-500 hover:bg-fire-600 text-white border-0">
+          <Button size="lg" class="px-8 bg-fire-500 hover:bg-fire-600 text-white border-0 glow-pulse">
             📦 Angular Module
           </Button>
           <Button size="lg" variant="outline" class="px-8 border-border hover:border-fire-500/50">
@@ -55,12 +55,12 @@
          ═══════════════════════════════════════════ -->
     <section class="py-28 px-6 bg-card/20">
       <div class="max-w-6xl mx-auto">
-        <p class="text-fire-400 text-sm font-semibold uppercase tracking-widest mb-4">Features</p>
+        <p class="text-fire-400 text-sm font-semibold uppercase tracking-widest mb-4">Capabilities</p>
         <h2 class="text-4xl sm:text-5xl font-bold mb-4 text-balance">
-          Everything you need for <span class="text-fire-400">user management</span>.
+          Complete <span class="text-fire-400">identity infrastructure</span>.
         </h2>
         <p class="text-lg text-muted-foreground mb-16 max-w-2xl">
-          Complete identity infrastructure, ready to plug into any project.
+          Controls who can do what. Secures applications at scale. Works across multiple systems.
         </p>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -83,13 +83,13 @@
     </section>
 
     <!-- ═══════════════════════════════════════════
-         WHY SEPARATE?
+         PHILOSOPHY
          ═══════════════════════════════════════════ -->
     <section class="py-28 px-6">
       <div class="max-w-4xl mx-auto">
         <p class="text-fire-400 text-sm font-semibold uppercase tracking-widest mb-4">Philosophy</p>
         <h2 class="text-4xl sm:text-5xl font-bold mb-8 text-balance">
-          Why a <span class="text-fire-400">separate</span> dashboard?
+          Why a <span class="text-fire-400">separate</span> identity layer?
         </h2>
 
         <div class="p-8 rounded-2xl border border-fire-500/30 bg-fire-500/5 glow-card">
@@ -97,13 +97,12 @@
             Because <span class="text-fire-400 font-semibold">every app needs users</span>.
           </p>
           <p class="text-muted-foreground leading-relaxed mb-6">
-            You shouldn't rebuild auth, roles, and profile management for every project.
-            Steal this dashboard, plug in your API, and focus on your
-            <span class="text-foreground font-medium">actual product</span>.
+            You shouldn't rebuild auth, roles, and permissions for every project.
+            UserMatrix is a battle-tested internal system — the same identity layer
+            we use across all Calcifer products — now available publicly.
           </p>
           <p class="text-muted-foreground leading-relaxed">
-            This is a battle-tested internal system, now available publicly.
-            It's the same user management layer we use across Calcifer products.
+            Plug it in. Focus on your <span class="text-foreground font-medium">actual product</span>.
           </p>
         </div>
       </div>
@@ -137,11 +136,11 @@
     </section>
 
     <!-- ═══════════════════════════════════════════
-         ROLE HIERARCHY VISUAL
+         ROLE HIERARCHY
          ═══════════════════════════════════════════ -->
     <section class="py-28 px-6">
       <div class="max-w-4xl mx-auto">
-        <p class="text-fire-400 text-sm font-semibold uppercase tracking-widest mb-4">Role System</p>
+        <p class="text-fire-400 text-sm font-semibold uppercase tracking-widest mb-4">Access Control</p>
         <h2 class="text-4xl sm:text-5xl font-bold mb-16 text-balance">
           Flexible <span class="text-fire-400">role hierarchy</span>.
         </h2>
@@ -168,20 +167,121 @@
     </section>
 
     <!-- ═══════════════════════════════════════════
+         PRICING
+         ═══════════════════════════════════════════ -->
+    <section id="pricing" class="py-28 px-6 bg-card/20">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-fire-400 text-sm font-semibold uppercase tracking-widest mb-4">UserMatrix Pricing</p>
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 text-balance">
+            Free for learning. <span class="text-fire-400">Paid for control.</span>
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Solo -->
+          <div
+            class="p-7 rounded-2xl border border-border bg-card hover:border-fire-500/30 transition-all duration-300">
+            <h3 class="text-lg font-bold mb-1">Solo</h3>
+            <p class="text-sm text-muted-foreground mb-4">Single project</p>
+            <p class="text-3xl font-black mb-1">Free</p>
+            <p class="text-xs text-muted-foreground mb-6">forever</p>
+            <ul class="space-y-2.5 mb-6 text-sm">
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Basic auth</li>
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Role management</li>
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Single project</li>
+              <li class="flex items-center gap-2"><span class="text-muted-foreground">—</span> <span
+                  class="text-muted-foreground">Audit logs</span></li>
+            </ul>
+            <Button class="w-full" variant="outline">Get Solo</Button>
+          </div>
+
+          <!-- Team Starter -->
+          <div
+            class="p-7 rounded-2xl border border-border bg-card hover:border-fire-500/30 transition-all duration-300">
+            <h3 class="text-lg font-bold mb-1">Starter</h3>
+            <p class="text-sm text-muted-foreground mb-4">Teams</p>
+            <p class="text-3xl font-black mb-1">$15<span class="text-base font-normal text-muted-foreground">/mo</span>
+            </p>
+            <p class="text-xs text-muted-foreground mb-6">per project</p>
+            <ul class="space-y-2.5 mb-6 text-sm">
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Full auth system</li>
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Role & permissions</li>
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Basic audit logs</li>
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Updates</li>
+            </ul>
+            <Button class="w-full" variant="outline">Get Starter</Button>
+          </div>
+
+          <!-- Team Pro -->
+          <div
+            class="p-7 rounded-2xl border-2 border-fire-500 bg-card relative hover:-translate-y-1 transition-all duration-300 glow-card">
+            <div
+              class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-fire-500 text-xs font-bold text-white">
+              RECOMMENDED
+            </div>
+            <h3 class="text-lg font-bold mb-1">Pro</h3>
+            <p class="text-sm text-muted-foreground mb-4">Scale</p>
+            <p class="text-3xl font-black mb-1 text-fire-400">$39<span
+                class="text-base font-normal text-muted-foreground">/mo</span></p>
+            <p class="text-xs text-muted-foreground mb-6">per project</p>
+            <ul class="space-y-2.5 mb-6 text-sm">
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Feature-level access</li>
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Cross-system</li>
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Advanced audit</li>
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Reporting</li>
+            </ul>
+            <Button class="w-full bg-fire-500 hover:bg-fire-600 text-white border-0">Get Pro</Button>
+          </div>
+
+          <!-- Enterprise -->
+          <div
+            class="p-7 rounded-2xl border border-border bg-card hover:border-fire-500/30 transition-all duration-300">
+            <h3 class="text-lg font-bold mb-1">Enterprise</h3>
+            <p class="text-sm text-muted-foreground mb-4">Full control</p>
+            <p class="text-3xl font-black mb-1">$299</p>
+            <p class="text-xs text-muted-foreground mb-6">one-time</p>
+            <ul class="space-y-2.5 mb-6 text-sm">
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Full identity system</li>
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Unlimited roles</li>
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Self-hosted</li>
+              <li class="flex items-center gap-2"><span class="text-fire-400">✓</span> Internal deploy</li>
+            </ul>
+            <Button class="w-full" variant="outline">Get Enterprise</Button>
+          </div>
+        </div>
+
+        <!-- Add-ons -->
+        <div class="mt-12 p-6 rounded-2xl border border-border/50 bg-card/30">
+          <h3 class="font-bold mb-4 text-center">🔌 Paid Add-ons</h3>
+          <div class="flex flex-wrap justify-center gap-4">
+            <span class="px-4 py-2 rounded-lg bg-fire-500/10 border border-fire-500/20 text-fire-400 text-sm">SSO
+              Integration</span>
+            <span
+              class="px-4 py-2 rounded-lg bg-fire-500/10 border border-fire-500/20 text-fire-400 text-sm">Multi-tenant
+              Identity</span>
+            <span class="px-4 py-2 rounded-lg bg-fire-500/10 border border-fire-500/20 text-fire-400 text-sm">Security
+              Compliance</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
          FINAL CTA
          ═══════════════════════════════════════════ -->
-    <section class="py-28 px-6 bg-card/20">
+    <section class="py-28 px-6">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-4xl sm:text-5xl font-black mb-6 text-balance">
-          Stop rebuilding <span class="text-fire-400">user systems</span>.
+          Stop rebuilding <span class="text-fire-400">identity systems</span>.
         </h2>
         <p class="text-lg text-muted-foreground max-w-xl mx-auto mb-12">
           Every app needs users. Make this the last time you build auth, roles,
-          and profile management from scratch.
+          and permissions from scratch.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" class="px-8 bg-fire-500 hover:bg-fire-600 text-white border-0 glow-pulse">
-            📦 Get the Dashboard
+            🔐 Get UserMatrix
           </Button>
           <Button size="lg" variant="outline" class="px-8 border-border hover:border-fire-500/50"
             @click="openLink('https://github.com/calcifer-shop/calcifer')">
@@ -229,9 +329,9 @@ const features = [
   },
   {
     icon: "🔗",
-    title: "API Integration",
-    description: "RESTful API endpoints for all user operations. Documented, versioned, and ready for your frontend.",
-    tags: ["REST", "Swagger"],
+    title: "Cross-System Integration",
+    description: "RESTful API for all user operations. Designed for multi-system environments with shared identity.",
+    tags: ["REST", "Multi-system"],
   },
 ]
 
@@ -268,11 +368,11 @@ const openLink = (url: string) => {
 }
 
 useHead({
-  title: 'User Management Dashboard — The Universal Identity Hub',
+  title: 'Calcifer.UserMatrix — Control Access. Everywhere.',
   meta: [
     {
       name: 'description',
-      content: 'A complete user management dashboard with auth, roles, permissions, audit logs, and profile management. Ready to drop into Angular, Vue, or .NET projects.'
+      content: 'Calcifer.UserMatrix is the universal access & identity control system. Roles, permissions, feature-level access, audit logs, and cross-system integration.'
     }
   ]
 })

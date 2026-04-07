@@ -17,7 +17,7 @@
           </NuxtLink>
         </div>
 
-        <!-- Center: Navigation (hidden on mobile) -->
+        <!-- Center: Navigation -->
         <nav class="hidden md:flex items-center gap-8">
           <!-- Products Dropdown -->
           <div class="relative group">
@@ -33,31 +33,31 @@
             <div
               class="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               <div class="w-72 rounded-xl border border-border bg-card/95 backdrop-blur-lg shadow-xl p-2">
-                <NuxtLink to="/products/calcifer-microservice"
+                <NuxtLink to="/products/forge"
                   class="flex items-start gap-3 p-3 rounded-lg hover:bg-fire-500/5 transition-colors group/item">
-                  <span class="text-lg mt-0.5">⚙️</span>
+                  <span class="text-lg mt-0.5">🔥</span>
                   <div>
                     <p class="font-semibold text-sm text-foreground group-hover/item:text-fire-400 transition-colors">
-                      Calcifer.Microservice</p>
-                    <p class="text-xs text-muted-foreground">The Control Layer for .NET</p>
+                      Calcifer.Forge</p>
+                    <p class="text-xs text-muted-foreground">Architecture Engine for .NET</p>
                   </div>
                 </NuxtLink>
                 <NuxtLink to="/products/ordermint"
                   class="flex items-start gap-3 p-3 rounded-lg hover:bg-fire-500/5 transition-colors group/item">
-                  <span class="text-lg mt-0.5">🧾</span>
+                  <span class="text-lg mt-0.5">🛒</span>
                   <div>
                     <p class="font-semibold text-sm text-foreground group-hover/item:text-fire-400 transition-colors">
-                      OrderMint</p>
-                    <p class="text-xs text-muted-foreground">Facebook-First Business System</p>
+                      Calcifer.OrderMint</p>
+                    <p class="text-xs text-muted-foreground">Social Commerce Business System</p>
                   </div>
                 </NuxtLink>
-                <NuxtLink to="/products/user-dashboard"
+                <NuxtLink to="/products/usermatrix"
                   class="flex items-start gap-3 p-3 rounded-lg hover:bg-fire-500/5 transition-colors group/item">
-                  <span class="text-lg mt-0.5">👥</span>
+                  <span class="text-lg mt-0.5">🔐</span>
                   <div>
                     <p class="font-semibold text-sm text-foreground group-hover/item:text-fire-400 transition-colors">
-                      User Dashboard</p>
-                    <p class="text-xs text-muted-foreground">Universal Identity Hub</p>
+                      Calcifer.UserMatrix</p>
+                    <p class="text-xs text-muted-foreground">Universal Access & Identity Control</p>
                   </div>
                 </NuxtLink>
               </div>
@@ -65,28 +65,27 @@
           </div>
 
           <NuxtLink to="/about"
-            class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">About</NuxtLink>
+            class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">About
+          </NuxtLink>
           <NuxtLink to="/contact"
-            class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Contact</NuxtLink>
+            class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Contact
+          </NuxtLink>
         </nav>
 
         <!-- Right: Actions -->
         <div class="flex items-center gap-3">
-          <!-- GitHub -->
           <a :href="githubUrl" target="_blank" rel="noopener"
             class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-muted-foreground hover:text-foreground border border-transparent hover:border-border transition-all">
             <i class="fab fa-github text-base"></i>
             <span>GitHub</span>
           </a>
 
-          <!-- CTA -->
-          <NuxtLink to="/products/calcifer-microservice">
+          <NuxtLink to="/products/forge">
             <Button size="sm" class="bg-fire-500 hover:bg-fire-600 text-white border-0">
               Get Started
             </Button>
           </NuxtLink>
 
-          <!-- Mobile menu toggle -->
           <Button variant="ghost" size="icon" class="md:hidden" @click="layoutStore.toggleMobileMenu">
             <svg v-if="!layoutStore.mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -111,22 +110,23 @@
         class="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-lg">
         <nav class="px-6 py-4 space-y-1">
           <p class="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-3 py-2">Products</p>
-          <NuxtLink to="/products/calcifer-microservice" @click="layoutStore.closeMobileMenu"
+          <NuxtLink to="/products/forge" @click="layoutStore.closeMobileMenu"
             class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-fire-500/5">
-            ⚙️ Calcifer.Microservice
+            🔥 Calcifer.Forge
           </NuxtLink>
           <NuxtLink to="/products/ordermint" @click="layoutStore.closeMobileMenu"
             class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-fire-500/5">
-            🧾 OrderMint
+            🛒 Calcifer.OrderMint
           </NuxtLink>
-          <NuxtLink to="/products/user-dashboard" @click="layoutStore.closeMobileMenu"
+          <NuxtLink to="/products/usermatrix" @click="layoutStore.closeMobileMenu"
             class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-fire-500/5">
-            👥 User Dashboard
+            🔐 Calcifer.UserMatrix
           </NuxtLink>
 
           <div class="pt-3 mt-2 border-t border-border/50 space-y-1">
             <NuxtLink to="/about" @click="layoutStore.closeMobileMenu"
-              class="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground">About</NuxtLink>
+              class="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground">About
+            </NuxtLink>
             <NuxtLink to="/contact" @click="layoutStore.closeMobileMenu"
               class="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground">Contact
             </NuxtLink>
@@ -138,7 +138,7 @@
           </div>
 
           <div class="pt-3">
-            <NuxtLink to="/products/calcifer-microservice" @click="layoutStore.closeMobileMenu">
+            <NuxtLink to="/products/forge" @click="layoutStore.closeMobileMenu">
               <Button class="w-full bg-fire-500 hover:bg-fire-600 text-white border-0">
                 Get Started
               </Button>
