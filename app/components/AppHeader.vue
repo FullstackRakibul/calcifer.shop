@@ -1,5 +1,5 @@
 <template>
-  <!-- Calcifer Developer Tools Header -->
+  <!-- Calcifer Multi-Product Header -->
   <header :class="[
     'sticky top-0 z-40 transition-all duration-300',
     layoutStore.headerScrolled
@@ -13,16 +13,52 @@
         <div class="flex items-center">
           <NuxtLink to="/" class="flex items-center gap-2 opacity-90 hover:opacity-100 transition-opacity">
             <span class="text-xl">🔥</span>
-            <span class="text-xl font-black tracking-tight">Calcifer</span>
+            <span class="text-xl font-black tracking-tight heading-font">Calcifer</span>
           </NuxtLink>
         </div>
 
         <!-- Center: Navigation (hidden on mobile) -->
         <nav class="hidden md:flex items-center gap-8">
-          <a href="#features" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Features</a>
-          <a href="#how-it-works" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">How It Works</a>
-          <a href="#architecture" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Architecture</a>
-          <a href="#pricing" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
+          <!-- Products Dropdown -->
+          <div class="relative group">
+            <button class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+              Products
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="w-72 rounded-xl border border-border bg-card/95 backdrop-blur-lg shadow-xl p-2">
+                <NuxtLink to="/products/calcifer-microservice"
+                  class="flex items-start gap-3 p-3 rounded-lg hover:bg-fire-500/5 transition-colors group/item">
+                  <span class="text-lg mt-0.5">⚙️</span>
+                  <div>
+                    <p class="font-semibold text-sm text-foreground group-hover/item:text-fire-400 transition-colors">Calcifer.Microservice</p>
+                    <p class="text-xs text-muted-foreground">The Control Layer for .NET</p>
+                  </div>
+                </NuxtLink>
+                <NuxtLink to="/products/ordermint"
+                  class="flex items-start gap-3 p-3 rounded-lg hover:bg-fire-500/5 transition-colors group/item">
+                  <span class="text-lg mt-0.5">🧾</span>
+                  <div>
+                    <p class="font-semibold text-sm text-foreground group-hover/item:text-fire-400 transition-colors">OrderMint</p>
+                    <p class="text-xs text-muted-foreground">Facebook-First Business System</p>
+                  </div>
+                </NuxtLink>
+                <NuxtLink to="/products/user-dashboard"
+                  class="flex items-start gap-3 p-3 rounded-lg hover:bg-fire-500/5 transition-colors group/item">
+                  <span class="text-lg mt-0.5">👥</span>
+                  <div>
+                    <p class="font-semibold text-sm text-foreground group-hover/item:text-fire-400 transition-colors">User Dashboard</p>
+                    <p class="text-xs text-muted-foreground">Universal Identity Hub</p>
+                  </div>
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
+
+          <NuxtLink to="/about" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">About</NuxtLink>
+          <NuxtLink to="/contact" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Contact</NuxtLink>
         </nav>
 
         <!-- Right: Actions -->
@@ -34,10 +70,12 @@
             <span>GitHub</span>
           </a>
 
-          <!-- Buy Now CTA -->
-          <Button @click="scrollToPricing" size="sm" class="bg-fire-500 hover:bg-fire-600 text-white border-0">
-            Buy Now
-          </Button>
+          <!-- CTA -->
+          <NuxtLink to="/products/calcifer-microservice">
+            <Button size="sm" class="bg-fire-500 hover:bg-fire-600 text-white border-0">
+              Get Started
+            </Button>
+          </NuxtLink>
 
           <!-- Mobile menu toggle -->
           <Button variant="ghost" size="icon" class="md:hidden" @click="layoutStore.toggleMobileMenu">
@@ -51,24 +89,39 @@
     <!-- Mobile Menu -->
     <Transition name="slide">
       <div v-if="layoutStore.mobileMenuOpen" class="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-lg">
-        <nav class="px-6 py-4 space-y-3">
-          <a href="#features" @click="layoutStore.closeMobileMenu"
-            class="block text-sm font-medium text-muted-foreground hover:text-foreground">Features</a>
-          <a href="#how-it-works" @click="layoutStore.closeMobileMenu"
-            class="block text-sm font-medium text-muted-foreground hover:text-foreground">How It Works</a>
-          <a href="#architecture" @click="layoutStore.closeMobileMenu"
-            class="block text-sm font-medium text-muted-foreground hover:text-foreground">Architecture</a>
-          <a href="#pricing" @click="layoutStore.closeMobileMenu"
-            class="block text-sm font-medium text-muted-foreground hover:text-foreground">Pricing</a>
-          <div class="pt-3 border-t border-border/50 flex flex-col gap-2">
+        <nav class="px-6 py-4 space-y-1">
+          <p class="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-3 py-2">Products</p>
+          <NuxtLink to="/products/calcifer-microservice" @click="layoutStore.closeMobileMenu"
+            class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-fire-500/5">
+            ⚙️ Calcifer.Microservice
+          </NuxtLink>
+          <NuxtLink to="/products/ordermint" @click="layoutStore.closeMobileMenu"
+            class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-fire-500/5">
+            🧾 OrderMint
+          </NuxtLink>
+          <NuxtLink to="/products/user-dashboard" @click="layoutStore.closeMobileMenu"
+            class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-fire-500/5">
+            👥 User Dashboard
+          </NuxtLink>
+
+          <div class="pt-3 mt-2 border-t border-border/50 space-y-1">
+            <NuxtLink to="/about" @click="layoutStore.closeMobileMenu"
+              class="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground">About</NuxtLink>
+            <NuxtLink to="/contact" @click="layoutStore.closeMobileMenu"
+              class="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground">Contact</NuxtLink>
             <a :href="githubUrl" target="_blank" rel="noopener"
-              class="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+              class="flex items-center gap-2 px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground">
               <i class="fab fa-github"></i>
               Star on GitHub
             </a>
-            <Button @click="scrollToPricing(); layoutStore.closeMobileMenu()" class="w-full bg-fire-500 hover:bg-fire-600 text-white border-0 mt-2">
-              Buy Now
-            </Button>
+          </div>
+
+          <div class="pt-3">
+            <NuxtLink to="/products/calcifer-microservice" @click="layoutStore.closeMobileMenu">
+              <Button class="w-full bg-fire-500 hover:bg-fire-600 text-white border-0">
+                Get Started
+              </Button>
+            </NuxtLink>
           </div>
         </nav>
       </div>
@@ -83,13 +136,6 @@ import { Button } from '@/components/ui/button'
 
 const layoutStore = useLayoutStore()
 const githubUrl = 'https://github.com/calcifer-shop/calcifer'
-
-const scrollToPricing = () => {
-  const element = document.getElementById('pricing')
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
-}
 
 const handleScroll = () => {
   layoutStore.updateHeaderScroll(window.scrollY)

@@ -6,32 +6,32 @@
         <div class="lg:col-span-1">
           <NuxtLink to="/" class="flex items-center gap-2 opacity-90 hover:opacity-100 transition-opacity mb-4">
             <span class="text-xl">🔥</span>
-            <span class="text-xl font-black tracking-tight">Calcifer</span>
+            <span class="text-xl font-black tracking-tight heading-font">Calcifer</span>
           </NuxtLink>
           <p class="text-muted-foreground text-sm leading-relaxed max-w-xs">
-            Production-ready .NET templates and developer tools.
-            Built for builders who ship products, not just code.
+            The Hearth of Digital Business. We build systems
+            that turn code into revenue.
           </p>
         </div>
 
-        <!-- Product -->
+        <!-- Products -->
         <div>
-          <h3 class="text-foreground font-semibold mb-4 text-sm uppercase tracking-wider">Product</h3>
+          <h3 class="text-foreground font-semibold mb-4 text-sm uppercase tracking-wider">Products</h3>
           <ul class="space-y-2.5">
             <li>
-              <a href="#features" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
-                Features
-              </a>
+              <NuxtLink to="/products/calcifer-microservice" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
+                Calcifer.Microservice
+              </NuxtLink>
             </li>
             <li>
-              <a href="#architecture" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
-                Architecture
-              </a>
+              <NuxtLink to="/products/ordermint" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
+                OrderMint
+              </NuxtLink>
             </li>
             <li>
-              <a href="#pricing" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
-                Pricing
-              </a>
+              <NuxtLink to="/products/user-dashboard" class="text-muted-foreground hover:text-fire-400 text-sm transition-colors">
+                User Dashboard
+              </NuxtLink>
             </li>
             <li>
               <a href="https://docs.calcifer.shop" target="_blank" rel="noopener"
