@@ -45,13 +45,13 @@
           <aside class="lg:col-span-1">
             <nav class="sticky top-24 space-y-1">
               <p class="text-xs uppercase tracking-widest font-semibold text-muted-foreground mb-3">On This Page</p>
-              <button v-for="(section, idx) in sections" :key="idx" @click="activeSection = idx"
-                class="w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200" :class="activeSection === idx
-                  ? 'bg-fire-500/10 text-fire-400 font-medium'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'">
+              <button v-for="(section, idx) in sections" :key="section.id" @click="scrollToSection(section.id)"
+                class="w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200"
+                :class="activeSection === idx ? 'bg-fire-500/10 text-fire-400 font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'">
                 {{ section.title }}
               </button>
             </nav>
+            <ScrollSpy :sections="sections" @activeChange="activeSection = $event" />
           </aside>
 
           <!-- Content -->
@@ -391,17 +391,27 @@ Custom roles can be created at any level.</code></pre>
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Button } from '@/components/ui/button'
+import ScrollSpy from '@/components/ScrollSpy.vue'
+import { useScrollToHash } from '@/composables/useScrollToHash'
 
+const { scrollToElement } = useScrollToHash()
 const activeSection = ref(0)
 
 const sections = [
-  { title: 'Overview' },
-  { title: 'Roles & Permissions' },
-  { title: 'Feature-Level Access' },
-  { title: 'Audit System' },
-  { title: 'SSO & Federation' },
-  { title: 'API Security' },
+  { id: 'overview', title: 'Overview' },
+  { id: 'roles', title: 'Roles & Permissions' },
+  { id: 'feature-access', title: 'Feature-Level Access' },
+  { id: 'audit', title: 'Audit System' },
+  { id: 'sso', title: 'SSO & Federation' },
+  { id: 'security', title: 'API Security' },
+  { id: 'permission-matrix', title: 'Permission Matrix' },
+  { id: 'audit-api', title: 'Audit API' },
 ]
+
+function scrollToSection(id: string) {
+  scrollToElement(id)
+  window.history.pushState({}, '', `#${id}`)
+}
 
 const rbacFeatures = [
   {

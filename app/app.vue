@@ -11,6 +11,9 @@
 
     <!-- Floating Theme Switcher (Calcifer Button) -->
     <FloatingThemeButton />
+
+    <!-- Hash Scroll Observer (global offset fix) -->
+    <HashScrollObserver />
   </div>
 </template>
 
@@ -21,6 +24,7 @@ import { useThemeStore } from "@/stores/theme"
 import AppHeader from "@/components/AppHeader.vue"
 import AppFooter from "@/components/AppFooter.vue"
 import FloatingThemeButton from "@/components/FloatingThemeButton.vue"
+import HashScrollObserver from "@/components/HashScrollObserver.vue"
 import { useNuxtApp } from '#app'
 
 const { $lenis, $Lenis } = useNuxtApp()

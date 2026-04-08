@@ -35,12 +35,13 @@
           <aside class="lg:col-span-1">
             <nav class="sticky top-24 space-y-1">
               <p class="text-xs uppercase tracking-widest font-semibold text-muted-foreground mb-3">On This Page</p>
-              <button v-for="(section, sIdx) in sections" :key="sIdx" @click="scrollTo(section.idx)"
+              <button v-for="(section, idx) in sections" :key="section.id" @click="scrollToSection(section.id)"
                 class="w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200"
-                :class="activeSection === section.idx ? 'bg-fire-500/10 text-fire-400 font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'">
+                :class="activeSection === idx ? 'bg-fire-500/10 text-fire-400 font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'">
                 {{ section.title }}
               </button>
             </nav>
+            <ScrollSpy :sections="sections" @activeChange="activeSection = $event" />
           </aside>
 
           <!-- Main content area (expanded sections) -->
@@ -399,31 +400,29 @@ public class SeatManager : ISeatManager
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Button } from '@/components/ui/button'
+import ScrollSpy from '@/components/ScrollSpy.vue'
+import { useScrollToHash } from '@/composables/useScrollToHash'
 
-const activeSection = ref('overview')
-
-function scrollTo(id: string) {
-  // Normalize id (remove leading # if present)
-  const cleanId = id.replace(/^#/, '')
-  activeSection.value = cleanId
-  const el = document.getElementById(cleanId)
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth' })
-  }
-}
+const { scrollToElement } = useScrollToHash()
+const activeSection = ref(0)
 
 const sections = [
-  { title: 'Overview', idx: 'overview' },
-  { title: 'Architecture', idx: 'architecture' },
-  { title: 'Licensing Engine', idx: 'licensing' },
-  { title: 'Feature Gating', idx: 'gating' },
-  { title: 'Seat Control', idx: 'seats' },
-  { title: 'Tech Specifications', idx: 'tech-specs' },
-  { title: 'Configuration', idx: 'configuration' },
-  { title: 'Getting Started', idx: 'getting-started' },
-  { title: 'Best Practices', idx: 'best-practices' },
-  { title: 'FAQ', idx: 'faq' }
+  { id: 'overview', title: 'Overview' },
+  { id: 'architecture', title: 'Architecture' },
+  { id: 'licensing', title: 'Licensing Engine' },
+  { id: 'gating', title: 'Feature Gating' },
+  { id: 'seats', title: 'Seat Control' },
+  { id: 'specs', title: 'Tech Specifications' },
+  { id: 'configuration', title: 'Configuration' },
+  { id: 'getting-started', title: 'Getting Started' },
+  { id: 'best-practices', title: 'Best Practices' },
+  { id: 'faq', title: 'FAQ' },
 ]
+
+function scrollToSection(id: string) {
+  scrollToElement(id)
+  window.history.pushState({}, '', `#${id}`)
+}
 
 const architectureLayers = [
   { name: 'Core', description: 'Entities, interfaces, domain logic. Zero external dependencies.' },

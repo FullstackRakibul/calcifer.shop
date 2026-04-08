@@ -233,3 +233,37 @@ code {
 .code-prop {
   color: oklch(0.78 0.1 250);
 }
+
+/* ============================================
+   Scroll Offset — Sticky Header Compensation
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+[id] {
+  scroll-margin-top: 80px;
+}
+
+:target {
+  scroll-margin-top: 80px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  html { scroll-padding-top: 70px; }
+  [id] { scroll-margin-top: 70px; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  html { scroll-padding-top: 60px; }
+  [id] { scroll-margin-top: 60px; }
+}
+
+/* Respect user's motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
