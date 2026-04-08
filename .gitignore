@@ -1,28 +1,33 @@
-# Nuxt dev/build outputs
-.output
-.data
-.nuxt
-.nitro
-.cache
-dist
+# ══════════════════════════════════════════════
+# Calcifer.Shop — .gitignore
+# ══════════════════════════════════════════════
 
-# Node dependencies
-node_modules
+# ── Nuxt Build Outputs ────────────────────────
+.output/
+.data/
+.nuxt/
+.nitro/
+.cache/
+dist/
 
-# Logs
-logs
+# ── Dependencies ──────────────────────────────
+node_modules/
+
+# ── Environment & Secrets ─────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Logs ──────────────────────────────────────
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-# Environment files
-.env
-.env.*
-!.env.example
-
-# OS specific files
+# ── OS Files ──────────────────────────────────
 .DS_Store
 .DS_Store?
 ._*
@@ -30,27 +35,56 @@ pnpm-debug.log*
 .Trashes
 ehthumbs.db
 Thumbs.db
+Desktop.ini
 
-# IDE - VSCode
+# ── IDE — VS Code ────────────────────────────
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
 !.vscode/launch.json
-.history
+.history/
 
-# IDE - IntelliJ/PhpStorm/etc
+# ── IDE — JetBrains ──────────────────────────
 .idea/
 *.iml
+*.iws
+*.ipr
 
-# IDE - Fleet
+# ── IDE — Fleet ──────────────────────────────
 .fleet/
 
-# Testing
-/coverage
-
-# Temporary files
+# ── IDE — Vim / Emacs ────────────────────────
 *.swp
+*.swo
 *.bak
 *~
-.temp
-.tmp
+\#*\#
+.\#*
+
+# ── Testing & Coverage ──────────────────────
+coverage/
+.nyc_output/
+*.lcov
+
+# ── Temporary Files ─────────────────────────
+.temp/
+.tmp/
+tmp/
+
+# ── Package Manager Locks (keep only npm) ───
+# Uncomment the ones you don't use:
+# package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+
+# ── TypeScript ──────────────────────────────
+*.tsbuildinfo
+
+# ── Misc ────────────────────────────────────
+*.local
+*.pid
+*.seed
+*.pid.lock
+.eslintcache
+.stylelintcache
