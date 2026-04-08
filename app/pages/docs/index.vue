@@ -49,7 +49,7 @@
     <!-- ═══════════════════════════════════════════
          QUICK START CARDS
          ═══════════════════════════════════════════ -->
-    <section class="pb-20 px-6">
+    <section class="py-20 px-6">
       <div class="max-w-6xl mx-auto">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <NuxtLink v-for="(card, idx) in quickStart" :key="idx" :to="card.link"
@@ -364,6 +364,44 @@ const siteMap = [
       { label: 'Logs & Monitoring', link: '/docs/troubleshooting#monitoring' },
     ],
   },
+  {
+    icon: '🔥',
+    title: 'Forge Docs',
+    items: [
+      { label: 'Forge Overview', link: '/docs/forge' },
+      { label: 'Licensing Engine', link: '/docs/forge#licensing' },
+      { label: 'Feature Gating', link: '/docs/forge#gating' },
+      { label: 'Seat Control', link: '/docs/forge#seats' },
+      { label: 'Architecture', link: '/docs/forge#architecture' },
+      { label: 'Configuration', link: '/docs/forge#configuration' },
+      { label: 'FAQ', link: '/docs/forge#faq' }
+    ]
+  },
+  {
+    icon: '🛒',
+    title: 'OrderMint Docs',
+    items: [
+      { label: 'OrderMint Overview', link: '/docs/ordermint' },
+      { label: 'Order Pipeline', link: '/docs/ordermint#pipeline' },
+      { label: 'Facebook Integration', link: '/docs/ordermint#facebook-integration' },
+      { label: 'Invoice & Ledger', link: '/docs/ordermint#invoicing' },
+      { label: 'Reporting', link: '/docs/ordermint#reporting' },
+      { label: 'Webhooks', link: '/docs/ordermint#webhooks' }
+    ]
+  },
+  {
+    icon: '🔐',
+    title: 'UserMatrix Docs',
+    items: [
+      { label: 'UserMatrix Overview', link: '/docs/usermatrix' },
+      { label: 'Roles & Permissions', link: '/docs/usermatrix#roles' },
+      { label: 'Feature‑Level Access', link: '/docs/usermatrix#feature-access' },
+      { label: 'Audit System', link: '/docs/usermatrix#audit' },
+      { label: 'SSO Federation', link: '/docs/usermatrix#sso' },
+      { label: 'API Security', link: '/docs/usermatrix#security' },
+      { label: 'Permission Matrix', link: '/docs/usermatrix#permission-matrix' }
+    ]
+  }
 ]
 
 useHead({

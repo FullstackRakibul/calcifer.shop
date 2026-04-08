@@ -1,9 +1,9 @@
 <template>
   <!-- Calcifer Multi-Product Header -->
   <header :class="[
-    'sticky top-0 z-40 transition-all duration-300',
+    'sticky top-0 z-40 transition-all duration-500',
     layoutStore.headerScrolled
-      ? 'bg-background/80 backdrop-blur-md border-b border-border/50'
+      ? 'bg-background/10 backdrop-blur-md border-b border-border/50'
       : 'bg-transparent border-b border-transparent'
   ]">
     <div class="px-6 sm:px-8 max-w-7xl mx-auto">

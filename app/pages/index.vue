@@ -106,15 +106,29 @@
     <!-- ═══════════════════════════════════════════
          3. THE PRODUCT TRINITY
          ═══════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════
+     3. THE PRODUCT TRINITY (First Release)
+     ═══════════════════════════════════════════ -->
     <section id="products" class="py-28 px-6 bg-card/20">
       <div class="max-w-6xl mx-auto">
         <p class="text-fire-400 text-sm font-semibold uppercase tracking-widest mb-4">The Product Trinity</p>
         <h2 class="text-4xl sm:text-5xl font-bold mb-4 text-balance">
-          Three systems. <span class="text-fire-400">One ecosystem.</span>
+          First three sparks. <span class="text-fire-400">An entire forge ahead.</span>
         </h2>
-        <p class="text-lg text-muted-foreground mb-16 max-w-2xl">
-          Each product is independent. Together, they form a system of ownership.
+        <p class="text-lg text-muted-foreground mb-6 max-w-2xl">
+          These are our ready‑to‑explore systems. But Calcifer is bigger – more tools, packages, web apps, and even
+          games are already burning in the workshop.
         </p>
+        <div class="flex flex-wrap gap-3 mb-16">
+          <span
+            class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-fire-500/10 text-fire-300 text-xs font-mono border border-fire-500/20">
+            🚀 Ready now
+          </span>
+          <span
+            class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-muted/50 text-muted-foreground text-xs font-mono">
+            🔨 More on the way
+          </span>
+        </div>
 
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Calcifer.Forge -->
@@ -207,12 +221,16 @@
           </NuxtLink>
         </div>
 
-        <!-- Ecosystem Note -->
+        <!-- Ecosystem Note (expanded) -->
         <div class="mt-16 p-6 rounded-2xl border border-fire-500/20 bg-fire-500/5 text-center">
           <p class="text-muted-foreground text-sm leading-relaxed">
             <span class="text-fire-400 font-semibold">Forge</span> builds the foundation ·
             <span class="text-fire-400 font-semibold">UserMatrix</span> controls access ·
             <span class="text-fire-400 font-semibold">OrderMint</span> drives business flow
+          </p>
+          <p class="text-muted-foreground text-xs mt-3">
+            And this is only the beginning — more tools, packages, websites, web apps, and games are coming from the
+            Calcifer ecosystem.
           </p>
         </div>
       </div>

@@ -45,10 +45,8 @@
           <aside class="lg:col-span-1">
             <nav class="sticky top-24 space-y-1">
               <p class="text-xs uppercase tracking-widest font-semibold text-muted-foreground mb-3">On This Page</p>
-              <button v-for="(section, idx) in sections" :key="idx"
-                @click="activeSection = idx"
-                class="w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200"
-                :class="activeSection === idx
+              <button v-for="(section, idx) in sections" :key="idx" @click="activeSection = idx"
+                class="w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200" :class="activeSection === idx
                   ? 'bg-fire-500/10 text-fire-400 font-medium'
                   : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'">
                 {{ section.title }}
@@ -62,7 +60,8 @@
             <!-- Overview -->
             <div id="overview">
               <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
                 Overview
               </h2>
               <div class="prose-section">
@@ -80,7 +79,8 @@
                 <div class="mt-6 p-5 rounded-xl border border-fire-500/20 bg-fire-500/5">
                   <p class="text-sm font-semibold text-fire-400 mb-2">💡 Core Principle</p>
                   <p class="text-sm text-muted-foreground">
-                    Access control should be invisible when it's working correctly — and impossible to bypass when it's not.
+                    Access control should be invisible when it's working correctly — and impossible to bypass when it's
+                    not.
                     UserMatrix enforces this at the infrastructure level, not the application level.
                   </p>
                 </div>
@@ -90,7 +90,8 @@
             <!-- Roles & Permissions -->
             <div id="roles">
               <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
                 Role & Permission Architecture
               </h2>
               <div class="prose-section">
@@ -133,7 +134,8 @@ Custom roles can be created at any level.</code></pre>
             <!-- Feature-Level Access -->
             <div id="feature-access">
               <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
                 Feature-Level Access Control
               </h2>
               <div class="prose-section">
@@ -171,7 +173,8 @@ Custom roles can be created at any level.</code></pre>
             <!-- Audit System -->
             <div id="audit">
               <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
                 Audit Logging System
               </h2>
               <div class="prose-section">
@@ -229,7 +232,8 @@ Custom roles can be created at any level.</code></pre>
             <!-- SSO -->
             <div id="sso">
               <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
                 SSO & Identity Federation
               </h2>
               <div class="prose-section">
@@ -259,7 +263,8 @@ Custom roles can be created at any level.</code></pre>
             <!-- API Security -->
             <div id="security">
               <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
                 API Security Patterns
               </h2>
               <div class="prose-section">
@@ -281,6 +286,82 @@ Custom roles can be created at any level.</code></pre>
               </div>
             </div>
 
+            <!-- Permission matrix (example) -->
+            <div id="permission-matrix">
+              <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                Permission Matrix Example
+              </h2>
+              <div class="prose-section">
+                <p>Below is a real‑world permission matrix for an e‑commerce system built with UserMatrix:</p>
+                <table class="min-w-full border border-border/50 rounded-lg text-sm">
+                  <thead class="bg-muted/30">
+                    <tr>
+                      <th class="px-4 py-2">Role \ Resource</th>
+                      <th class="px-4 py-2">View orders</th>
+                      <th class="px-4 py-2">Edit orders</th>
+                      <th class="px-4 py-2">View reports</th>
+                      <th class="px-4 py-2">Manage users</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-t border-border/50">
+                      <td class="px-4 py-2">Customer</td>
+                      <td class="px-4 py-2">✅ (own)</td>
+                      <td class="px-4 py-2">❌</td>
+                      <td class="px-4 py-2">❌</td>
+                      <td class="px-4 py-2">❌</td>
+                    </tr>
+                    <tr class="border-t border-border/50">
+                      <td class="px-4 py-2">Support</td>
+                      <td class="px-4 py-2">✅ (all)</td>
+                      <td class="px-4 py-2">❌</td>
+                      <td class="px-4 py-2">❌</td>
+                      <td class="px-4 py-2">❌</td>
+                    </tr>
+                    <tr class="border-t border-border/50">
+                      <td class="px-4 py-2">Manager</td>
+                      <td class="px-4 py-2">✅ (all)</td>
+                      <td class="px-4 py-2">✅ (all)</td>
+                      <td class="px-4 py-2">✅</td>
+                      <td class="px-4 py-2">❌</td>
+                    </tr>
+                    <tr class="border-t border-border/50">
+                      <td class="px-4 py-2">Admin</td>
+                      <td class="px-4 py-2">✅ (all)</td>
+                      <td class="px-4 py-2">✅ (all)</td>
+                      <td class="px-4 py-2">✅</td>
+                      <td class="px-4 py-2">✅</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Audit API reference -->
+            <div id="audit-api">
+              <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                Audit API Reference
+              </h2>
+              <div class="prose-section">
+                <div class="rounded-xl border border-border/50 overflow-hidden mb-4">
+                  <div class="px-4 py-2 bg-muted/50 border-b border-border/50"><span class="text-xs font-mono">GET
+                      /api/audit/logs?userId=usr_123&action=permission.granted&from=2026-03-01</span></div>
+                  <pre class="p-4 text-xs text-muted-foreground leading-relaxed overflow-x-auto bg-card/30"><code>{
+  "logs": [
+    { "timestamp": "2026-04-07T14:23:11Z", "action": "permission.granted", "actor": "admin@co.com", "target": "user@co.com", "details": { "permission": "reports.export" } }
+  ],
+  "pagination": { "next": "/api/audit/logs?cursor=abc123" }
+}</code></pre>
+                </div>
+                <p>Query parameters: <code>userId</code>, <code>action</code>, <code>resource</code>, <code>from</code>,
+                  <code>to</code>, <code>limit</code> (max 1000).
+                </p>
+              </div>
+            </div>
             <!-- CTA -->
             <div class="p-8 rounded-2xl border border-fire-500/20 bg-fire-500/5 text-center">
               <p class="text-xl font-bold text-foreground mb-2">Control access. Everywhere.</p>
@@ -429,12 +510,4 @@ useHead({
 })
 </script>
 
-<style scoped>
-.prose-section p {
-  @apply text-muted-foreground leading-relaxed mb-4;
-}
-
-.prose-section p:last-child {
-  @apply mb-0;
-}
-</style>
+<style scoped></style>

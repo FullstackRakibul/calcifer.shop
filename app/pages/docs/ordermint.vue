@@ -46,10 +46,8 @@
           <aside class="lg:col-span-1">
             <nav class="sticky top-24 space-y-1">
               <p class="text-xs uppercase tracking-widest font-semibold text-muted-foreground mb-3">On This Page</p>
-              <button v-for="(section, idx) in sections" :key="idx"
-                @click="activeSection = idx"
-                class="w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200"
-                :class="activeSection === idx
+              <button v-for="(section, sIdx) in sections" :key="sIdx" @click="scrollTo(section.idx)"
+                class="w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200" :class="activeSection === section.idx
                   ? 'bg-fire-500/10 text-fire-400 font-medium'
                   : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'">
                 {{ section.title }}
@@ -63,13 +61,15 @@
             <!-- Overview -->
             <div id="overview">
               <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
                 Overview
               </h2>
               <div class="prose-section">
                 <p>
                   OrderMint was born from a real problem: thousands of small businesses across South and Southeast Asia
-                  run their entire operations through Facebook Messenger — taking orders via chat, tracking payments manually,
+                  run their entire operations through Facebook Messenger — taking orders via chat, tracking payments
+                  manually,
                   and losing data in the process.
                 </p>
                 <p>
@@ -92,7 +92,8 @@
             <!-- Order Pipeline -->
             <div id="pipeline">
               <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
                 Order Processing Pipeline
               </h2>
               <div class="prose-section">
@@ -104,7 +105,8 @@
                 <div class="mt-6 space-y-3">
                   <div v-for="(step, idx) in pipelineSteps" :key="idx"
                     class="flex items-start gap-4 p-4 rounded-xl border border-border/50 bg-card/30">
-                    <div class="shrink-0 w-8 h-8 rounded-full bg-fire-500/10 flex items-center justify-center text-fire-400 text-sm font-bold">
+                    <div
+                      class="shrink-0 w-8 h-8 rounded-full bg-fire-500/10 flex items-center justify-center text-fire-400 text-sm font-bold">
                       {{ idx + 1 }}
                     </div>
                     <div>
@@ -119,7 +121,8 @@
             <!-- Integrations -->
             <div id="integrations">
               <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
                 Integrations
               </h2>
               <div class="prose-section">
@@ -149,7 +152,8 @@
             <!-- Reporting -->
             <div id="reporting">
               <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
                 Reporting Engine
               </h2>
               <div class="prose-section">
@@ -175,7 +179,8 @@
             <!-- Invoice & Ledger -->
             <div id="invoicing">
               <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
                 Invoice & Ledger System
               </h2>
               <div class="prose-section">
@@ -205,7 +210,8 @@
             <!-- Webhook Config -->
             <div id="webhooks">
               <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
+                <span
+                  class="w-8 h-8 rounded-lg bg-fire-500/10 flex items-center justify-center text-sm text-fire-400">#</span>
                 Webhook Configuration
               </h2>
               <div class="prose-section">
@@ -264,15 +270,24 @@
 import { ref } from 'vue'
 import { Button } from '@/components/ui/button'
 
-const activeSection = ref(0)
+const activeSection = ref('')
+
+function scrollTo(id: string) {
+  const cleanId = id.replace(/^#/, '')
+  activeSection.value = cleanId
+  const el = document.getElementById(cleanId)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 
 const sections = [
-  { title: 'Overview' },
-  { title: 'Order Pipeline' },
-  { title: 'Integrations' },
-  { title: 'Reporting Engine' },
-  { title: 'Invoice & Ledger' },
-  { title: 'Webhooks' },
+  { title: 'Overview', idx: 'overview' },
+  { title: 'Order Pipeline', idx: 'pipeline' },
+  { title: 'Integrations', idx: 'integrations' },
+  { title: 'Reporting Engine', idx: 'reporting' },
+  { title: 'Invoice & Ledger', idx: 'invoicing' },
+  { title: 'Webhooks', idx: 'webhooks' }
 ]
 
 const pipelineSteps = [
@@ -359,12 +374,4 @@ useHead({
 })
 </script>
 
-<style scoped>
-.prose-section p {
-  @apply text-muted-foreground leading-relaxed mb-4;
-}
-
-.prose-section p:last-child {
-  @apply mb-0;
-}
-</style>
+<style scoped></style>
