@@ -8,22 +8,31 @@
       <NuxtPage />
       <AppFooter />
     </main>
+
+    <!-- Floating Theme Switcher (Calcifer Button) -->
+    <FloatingThemeButton />
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from "vue"
 import { useLayoutStore } from "@/stores/layout"
+import { useThemeStore } from "@/stores/theme"
 import AppHeader from "@/components/AppHeader.vue"
 import AppFooter from "@/components/AppFooter.vue"
+import FloatingThemeButton from "@/components/FloatingThemeButton.vue"
 import { useNuxtApp } from '#app'
 
 const { $lenis, $Lenis } = useNuxtApp()
 const mainContent = ref<HTMLElement | null>(null)
 const layoutStore = useLayoutStore()
+const themeStore = useThemeStore()
 
 onMounted(() => {
   layoutStore.init()
+
+  // Load persisted theme (dark mode + accent color) before first paint
+  themeStore.loadSavedTheme()
 
   // Initialize Lenis smooth scroll on the main element
   if (import.meta.client && $Lenis && mainContent.value) {
@@ -85,3 +94,4 @@ html.lenis body {
   overflow: hidden;
 }
 </style>
+
