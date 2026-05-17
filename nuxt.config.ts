@@ -4,10 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: [
-    "@pinia/nuxt",
-    "shadcn-nuxt",
-  ],
+  modules: ["@pinia/nuxt", "shadcn-nuxt", "nuxt-lucide-icons"],
 
   shadcn: {
     prefix: '',

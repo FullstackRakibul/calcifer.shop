@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --yes shadcn-vue@latest add popover --overwrite)",
+      "Bash(npx --yes shadcn-vue@latest add select --overwrite)",
+      "Bash(npx --yes shadcn-vue@latest add card --overwrite)",
+      "Bash(npx --yes shadcn-vue@latest add button --overwrite)",
+      "Bash(npx --yes shadcn-vue@latest add input --overwrite)",
+      "Bash(npx --yes shadcn-vue@latest add label --overwrite)",
+      "Bash(npx --yes shadcn-vue@latest add badge --overwrite)",
+      "Bash(npm run dev)",
+      "Bash(npm run build)",
+      "Bash(npm install)",
+      "Bash(nuxt prepare)"
+    ]
+  }
+}

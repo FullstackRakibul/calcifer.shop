@@ -73,6 +73,11 @@ export {
   MoreHorizontal,
   MoreVertical,
   Send,
+  RefreshCw,
+  Printer,
+  Upload,
+  FileText,
+
 } from 'lucide-vue-next'
 
 // Media & Content
@@ -96,7 +101,6 @@ export {
   Share2,
   Link,
   Download,
-  Upload,
   ExternalLink,
 } from 'lucide-vue-next'
 

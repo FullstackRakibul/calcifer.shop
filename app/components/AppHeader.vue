@@ -86,6 +86,17 @@
             </Button>
           </NuxtLink>
 
+          <!-- Responsive Round Dashboard/Login Icon Link -->
+          <NuxtLink :to="authStore.isLoggedIn ? '/dashboard' : '/login'"
+            class="flex items-center justify-center w-9 h-9 rounded-full border border-border bg-card/60 text-muted-foreground hover:text-foreground hover:border-fire-500/30 transition-all duration-300 group hover:shadow-[0_0_12px_rgba(249,115,22,0.15)] cursor-pointer"
+            :title="authStore.isLoggedIn ? 'Go to Dashboard' : 'Sign In'"
+            :aria-label="authStore.isLoggedIn ? 'Go to Dashboard' : 'Sign In'">
+            <LayoutDashboard v-if="authStore.isLoggedIn"
+              class="w-4.5 h-4.5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 text-fire-400" />
+            <LogIn v-else
+              class="w-4.5 h-4.5 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-0.5" />
+          </NuxtLink>
+
           <Button variant="ghost" size="icon" class="md:hidden" @click="layoutStore.toggleMobileMenu">
             <svg v-if="!layoutStore.mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -131,10 +142,19 @@
               class="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground">Contact
             </NuxtLink>
             <a :href="githubUrl" target="_blank" rel="noopener"
-              class="flex items-center gap-2 px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground">
+              class="flex items-center gap-2 px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground mb-1">
               <i class="fab fa-github"></i>
               Star on GitHub
             </a>
+
+            <!-- Mobile Menu Dashboard/Login Link -->
+            <NuxtLink :to="authStore.isLoggedIn ? '/dashboard' : '/login'" @click="layoutStore.closeMobileMenu"
+              class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors"
+              :class="authStore.isLoggedIn ? 'text-fire-400 bg-fire-500/5 hover:bg-fire-500/10' : 'text-muted-foreground hover:text-foreground hover:bg-accent/5'">
+              <LayoutDashboard v-slot:icon v-if="authStore.isLoggedIn" class="w-[18px] h-[18px]" />
+              <LogIn v-slot:icon v-else class="w-4.5 h-4.5" />
+              <span>{{ authStore.isLoggedIn ? 'Dashboard' : 'Sign In' }}</span>
+            </NuxtLink>
           </div>
 
           <div class="pt-3">
@@ -153,9 +173,12 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
 import { useLayoutStore } from '@/stores/layout'
+import { useAuthStore } from '@/stores/auth'
 import { Button } from '@/components/ui/button'
+import { LayoutDashboard, LogIn } from '~/composables/useIcons'
 
 const layoutStore = useLayoutStore()
+const authStore = useAuthStore()
 const githubUrl = 'https://github.com/FullstackRakibul/calcifer.shop'
 
 const handleScroll = () => {
@@ -163,6 +186,7 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
+  authStore.checkAuth()
   layoutStore.init()
   window.addEventListener('scroll', handleScroll)
 })

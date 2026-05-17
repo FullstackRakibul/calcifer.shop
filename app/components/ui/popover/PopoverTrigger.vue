@@ -1,9 +1,12 @@
-<template>
-  <PopoverTriggerPrimitive v-bind="$attrs" as-child>
-    <slot />
-  </PopoverTriggerPrimitive>
-</template>
-
 <script setup lang="ts">
-import { PopoverTrigger as PopoverTriggerPrimitive } from 'radix-vue'
+import type { PopoverTriggerProps } from "reka-ui"
+import { PopoverTrigger } from "reka-ui"
+
+const props = defineProps<PopoverTriggerProps>()
 </script>
+
+<template>
+  <PopoverTrigger v-bind="props">
+    <slot />
+  </PopoverTrigger>
+</template>
